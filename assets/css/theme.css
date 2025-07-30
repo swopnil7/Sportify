@@ -1,3 +1,6 @@
+html, body, .main-header-bar, .shop-section, .cart-container, .wishlist-container, .featured-products, .featured-brands, .clubs-banner, .contact-section {
+  transition: background 0.4s cubic-bezier(.4,0,.2,1), color 0.4s cubic-bezier(.4,0,.2,1);
+}
 :root {
   /* Latte (Light) */
   --ctp-rosewater: #dc8a78;
