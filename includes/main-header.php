@@ -31,13 +31,16 @@
 </div>
 <!-- Search Bar Popout -->
 <div id="mainSearchBar" class="main-search-bar">
-  <input type="text" placeholder="Search products...">
-  <button id="searchCloseBtn" class="icon-btn search-close" aria-label="Close"><i class="fa fa-times"></i></button>
+  <form id="mainSearchForm" action="../src/shop.php" method="get" style="display: flex; align-items: center; width: 100%;">
+    <input type="text" id="mainSearchInput" name="search" placeholder="Search products..." autocomplete="off" style="flex:1;">
+    <button type="submit" style="display:none"></button>
+    <button id="searchCloseBtn" class="icon-btn search-close" aria-label="Close" type="button"><i class="fa fa-times"></i></button>
+  </form>
 </div>
 </div>
+<script src="../assets/js/main-header.js"></script>
 <script>
 // Polished Categories Dropdown Toggle
-// (Replaces any previous dropdown script)
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.getElementById('categoriesToggle');
   const menu = document.getElementById('categoriesMenu');
@@ -58,5 +61,26 @@ document.addEventListener('DOMContentLoaded', function() {
       toggle.setAttribute('aria-expanded', 'false');
     }
   });
+
+  // Search bar submit logic
+  const searchForm = document.getElementById('mainSearchForm');
+  const searchInput = document.getElementById('mainSearchInput');
+  if (searchForm && searchInput) {
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const val = searchInput.value.trim();
+      if (val.length > 0) {
+        // Always redirect to shop.php with search param
+        window.location.href = '../src/shop.php?search=' + encodeURIComponent(val);
+      }
+    });
+    // Also allow Enter key to submit
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        searchForm.dispatchEvent(new Event('submit'));
+      }
+    });
+  }
 });
 </script>
