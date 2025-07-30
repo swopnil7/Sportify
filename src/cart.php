@@ -6,7 +6,11 @@ require_once __DIR__ . '/../includes/top-header.php';
 
 $user_id = $_SESSION['user_id'] ?? null;
 $cart_items = [];
+
+
+$usd_to_npr = 133;
 $total = 0;
+$item_count = 0;
 
 if ($user_id) {
     $stmt = $conn->prepare("SELECT c.*, p.image_url FROM cart c JOIN products p ON c.product_id = p.id WHERE c.user_id = ?");
@@ -16,6 +20,7 @@ if ($user_id) {
     while ($row = $result->fetch_assoc()) {
         $cart_items[] = $row;
         $total += $row['product_price'] * $row['quantity'];
+        $item_count += $row['quantity'];
     }
     $stmt->close();
 }
@@ -65,7 +70,7 @@ if ($user_id) {
                                 <td><?php echo htmlspecialchars($item['product_name']); ?></td>
                                 <td><?php echo htmlspecialchars($item['size']); ?></td>
                                 <td><?php echo htmlspecialchars($item['color']); ?></td>
-                                <td>$<?php echo number_format($item['product_price'], 2); ?></td>
+                                <td>रु<?php echo number_format($item['product_price'] * $usd_to_npr, 0); ?></td>
                                 <td>
                                   <div class="cart-qty-controls">
                                     <button type="button" class="cart-qty-btn cart-qty-decrease">-</button>
@@ -73,7 +78,7 @@ if ($user_id) {
                                     <button type="button" class="cart-qty-btn cart-qty-increase">+</button>
                                   </div>
                                 </td>
-                                <td>$<?php echo number_format($item['product_price'] * $item['quantity'], 2); ?></td>
+                                <td>रु<?php echo number_format($item['product_price'] * $item['quantity'] * $usd_to_npr, 0); ?></td>
                                 <td><button type="button" class="cart-remove-btn" data-cart-id="<?php echo $item['id']; ?>">&#128465;</button></td>
                             </tr>
                         <?php endforeach; ?>
@@ -89,19 +94,30 @@ if ($user_id) {
                 <h2>Order Summary</h2>
                 <div class="cart-summary-row">
                     <span>Subtotal:</span>
-                    <span>$<?php echo number_format($total, 2); ?></span>
+                    <span>रु<?php echo number_format($total * $usd_to_npr, 0); ?></span>
                 </div>
+                <?php
+                  // Calculate shipping (linear: 0 if empty, 2 USD for 1 item, +2 USD per item)
+                  $shipping = 0;
+                  if ($item_count > 0) {
+                    $shipping = 2 * $item_count;
+                  }
+                  // Convert shipping to NPR
+                  $shipping_npr = $shipping * $usd_to_npr;
+                  // Calculate tax (13% of subtotal if not empty), in NPR
+                  $tax = $item_count > 0 ? ($total * $usd_to_npr) * 0.13 : 0;
+                ?>
                 <div class="cart-summary-row">
                     <span>Shipping:</span>
-                    <span>$15.00</span>
+                    <span>रु<?php echo number_format($shipping_npr, 0); ?></span>
                 </div>
                 <div class="cart-summary-row">
                     <span>Tax:</span>
-                    <span>$10.00</span>
+                    <span>रु<?php echo number_format($tax, 0); ?></span>
                 </div>
                 <div class="cart-summary-row cart-summary-total">
                     <span>Total:</span>
-                    <span style="color: var(--primary); font-weight: bold;">$<?php echo number_format($total + 15 + 10, 2); ?></span>
+                    <span style="color: var(--primary); font-weight: bold;">रु<?php echo number_format(($total * $usd_to_npr) + $shipping_npr + $tax, 0); ?></span>
                 </div>
                 <button class="auth-btn cart-checkout-btn">Proceed to Checkout</button>
                 <a href="index.php" class="cart-continue-link">&larr; Continue Shopping</a>

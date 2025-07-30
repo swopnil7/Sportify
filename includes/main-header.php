@@ -13,9 +13,9 @@
           CATEGORIES <span class="categories-arrow" id="categoriesArrow">&#9662;</span>
         </button>
         <div class="categories-dropdown" id="categoriesMenu" role="menu">
-          <a href="../src/category.php?cat=jerseys" class="dropdown-item">Jerseys</a>
-          <a href="../src/category.php?cat=footwear" class="dropdown-item">Footwear</a>
-          <a href="../src/category.php?cat=accessories" class="dropdown-item">Accessories</a>
+          <button class="dropdown-item category-link" data-category="Clothing" type="button">Clothing</button>
+          <button class="dropdown-item category-link" data-category="Footwear" type="button">Footwear</button>
+          <button class="dropdown-item category-link" data-category="Accessories" type="button">Accessories</button>
         </div>
       </li>
       <li><a href="#contact">CONTACT</a></li>
@@ -82,5 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Category dropdown logic: redirect to shop.php with category param
+  document.querySelectorAll('.category-link').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const cat = btn.getAttribute('data-category');
+      if (cat) {
+        window.location.href = '../src/shop.php?category=' + encodeURIComponent(cat);
+      }
+    });
+  });
 });
 </script>

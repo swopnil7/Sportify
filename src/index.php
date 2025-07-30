@@ -27,9 +27,9 @@
           <span class="offer-desc">Discover fresh styles and unbeatable deals for every adventure.</span>
         </div>
         <div class="carousel-btns">
-          <a href="#" class="carousel-btn">SHOP CLOTHINGS &rarr;</a>
-          <a href="#" class="carousel-btn">SHOP FOOTWEARS &rarr;</a>
-          <a href="#" class="carousel-btn">SHOP ACCESSORIES &rarr;</a>
+          <a href="shop.php?category=Clothing" class="carousel-btn">SHOP CLOTHINGS &rarr;</a>
+          <a href="shop.php?category=Footwear" class="carousel-btn">SHOP FOOTWEARS &rarr;</a>
+          <a href="shop.php?category=Accessories" class="carousel-btn">SHOP ACCESSORIES &rarr;</a>
         </div>
       </div>
     </section>
@@ -46,7 +46,7 @@ $conn = new mysqli('localhost', 'root', '', 'sportify_db');
 if ($conn->connect_error) {
     die('Database connection failed: ' . $conn->connect_error);
 }
-$sql = "SELECT * FROM products WHERE badge = 'Popular' LIMIT 4";
+$sql = "SELECT * FROM products WHERE badge = 'Popular' LIMIT 3";
 $result = $conn->query($sql);
 ?>
 
@@ -62,7 +62,7 @@ $result = $conn->query($sql);
         </div>
         <div class="product-info">
           <h3 class="product-name"><?php echo htmlspecialchars($row['name']); ?></h3>
-          <p class="product-club"><?php echo htmlspecialchars($row['club']); ?></p>
+
           <?php
             $usd_to_npr = 133;
             $price_npr = isset($row['price']) ? $row['price'] * $usd_to_npr : 0;
@@ -122,7 +122,7 @@ $result2 = $conn2->query($sql2);
         </div>
         <div class="product-info">
           <h3 class="product-name"><?php echo htmlspecialchars($row['name']); ?></h3>
-          <p class="product-club"><?php echo htmlspecialchars($row['club']); ?></p>
+
           <?php
             $usd_to_npr = 133;
             $price_npr = isset($row['price']) ? $row['price'] * $usd_to_npr : 0;

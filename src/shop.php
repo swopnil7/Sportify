@@ -123,7 +123,6 @@ if ($stmt) {
         <div class="filter-group">
           <label><i class="fa fa-rupee-sign"></i> Price</label>
           <div class="price-range">
-            <span>रु</span> <!-- Display NPR symbol -->
             <input type="number" name="min_price" min="0" step="1" value="<?= htmlspecialchars($min_price) ?>" placeholder="Min">
             <span>-</span>
             <input type="number" name="max_price" min="0" step="1" value="<?= htmlspecialchars($max_price) ?>" placeholder="Max">
@@ -156,9 +155,7 @@ if ($stmt) {
               </div>
               <div class="product-info">
                 <h3 class="product-name" title="<?= htmlspecialchars($product['name']) ?>"><?= htmlspecialchars($product['name']) ?></h3>
-                <?php if (!empty($product['club'])): ?>
-                  <p class="product-club"><?= htmlspecialchars($product['club']) ?></p>
-                <?php endif; ?>
+
                 <?php
                   $usd_to_npr = 133;
                   $price_npr = isset($product['price']) ? $product['price'] * $usd_to_npr : 0;

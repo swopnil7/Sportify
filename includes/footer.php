@@ -8,9 +8,8 @@
       <h4>Quick Links</h4>
       <ul>
         <li><a href="/src/index.php">Home</a></li>
-        <li><a href="/src/index.php#shop">Shop</a></li>
-        <li><a href="/src/index.php#categories">Categories</a></li>
-        <li><a href="/src/index.php#contact">Contact</a></li>
+        <li><a href="/src/shop.php">Shop</a></li>
+        <li><a href="../src/index.php#contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-social">
