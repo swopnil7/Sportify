@@ -1,3 +1,44 @@
+  // Add to cart from wishlist
+  document.querySelectorAll('.wishlist-cart-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const productId = btn.getAttribute('data-product-id');
+      if (!productId) return;
+      btn.disabled = true;
+      // Try to get image_url from wishlist card if present
+      let productImage = '';
+      const card = btn.closest('.wishlist-card');
+      if (card) {
+        const img = card.querySelector('img');
+        if (img) {
+          productImage = img.getAttribute('src') || '';
+        }
+      }
+      fetch('add_to_cart.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `product_id=${encodeURIComponent(productId)}&quantity=1&image_url=${encodeURIComponent(productImage)}`
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          btn.innerHTML = '<i class="fa fa-check"></i>';
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fa fa-shopping-cart"></i>';
+            btn.disabled = false;
+          }, 1200);
+        } else if (data.error === 'not_logged_in') {
+          window.location.href = 'register.php';
+        } else {
+          alert('Could not add to cart.');
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        alert('Network error.');
+        btn.disabled = false;
+      });
+    });
+  });
 document.addEventListener('DOMContentLoaded', function() {
   // Wishlist toggle
   document.querySelectorAll('.wishlist-btn').forEach(btn => {

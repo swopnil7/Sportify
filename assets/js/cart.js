@@ -8,10 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Product not found.');
         return;
       }
+      const productImage = card.getAttribute('data-product-image') || '';
       fetch('./add_to_cart.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `product_id=${encodeURIComponent(productId)}&quantity=1`
+        body: `product_id=${encodeURIComponent(productId)}&quantity=1&image_url=${encodeURIComponent(productImage)}`
       })
       .then(res => res.json())
       .then(data => {

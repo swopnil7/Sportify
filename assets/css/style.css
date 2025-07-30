@@ -1,3 +1,22 @@
+.wishlist-cart-btn {
+  background: var(--ctp-mauve, #b4befe);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.2em;
+  height: 2.2em;
+  font-size: 1.1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+  margin-right: 0.1em;
+}
+.wishlist-cart-btn:hover {
+  background: var(--ctp-green, #a6e3a1);
+  color: var(--ctp-mantle, #181825);
+}
 /* Wishlist Page Styles */
 .wishlist-container {
   max-width: 700px;
