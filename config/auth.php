@@ -1,6 +1,8 @@
 <?php
 // auth.php: Handles authentication, session, and DB logic for login/register
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once '../config/db.php';
 
 function get_db_conn() {

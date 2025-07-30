@@ -15,7 +15,7 @@ include '../config/db.php';
       <?php if (isset($_SESSION['user_id'])): ?>
         <li>
           <form method="post" action="../src/account.php" style="display:inline;">
-            <button type="submit" name="logout" style="background:none;color:inherit;padding:0;font:inherit;border:none;cursor:pointer;display:flex;align-items:center;gap:0.4em;font-size:0.8rem;line-height:1.2;">
+            <button type="submit" name="logout" style="background:none;color:inherit;padding:0;font:inherit;border:none;cursor:pointer;display:flex;align-items:center;gap:0.4em;font-size:0.7rem;line-height:1.2;">
               <i class="fa fa-sign-out-alt"></i> Logout
             </button>
           </form>

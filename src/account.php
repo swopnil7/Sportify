@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <main>
-      <div style="max-width: 1000px; margin: 0 auto; padding: 2.5rem 0 2rem 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div style="max-width: 1000px; margin: 0 auto; padding: 6.5rem 0 2rem 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:0.2em; text-align:center; letter-spacing:0.01em;">My Account</h2>
         <p style="text-align:center; color:var(--ctp-subtext1,#a6adc8); font-size:1.08rem; margin-bottom:2.2rem; margin-top:-0.5em;">Manage your profile and security settings</p>
         <?php if ($account_error): ?>
@@ -192,7 +192,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </div>
     </main>
-    <?php include '../includes/footer.php'; ?>
 </body>
 </html>
 <?php

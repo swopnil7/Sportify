@@ -40,28 +40,28 @@ i.fa-solid.fa-eye-slash {
   padding: 0 0.5em;
   transition: border 0.18s, box-shadow 0.18s;
 }
-.input-icon {
-  color: var(--ctp-mauve, #b4befe);
-  font-size: 1.1em;
-  margin-right: 0.5em;
-}
-.input-icon-group input {
+.auth-btn {
+  width: 100%;
+  background: var(--ctp-mauve, #b4befe);
+  color: var(--ctp-crust, #181825);
   border: none;
-  background: transparent;
-  color: var(--ctp-text, #cdd6f4);
-  font-size: 1rem;
-  padding: 12px 0;
-  outline: none;
-  flex: 1;
-}
-.input-icon-group input:focus {
-  outline: none;
-}
-.auth-row {
+  padding: 1.2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 1em;
-  margin-bottom: 0.7em;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: none;
+}
+.auth-btn:hover {
+  background: var(--ctp-lavender, #a5b4fc);
+  color: var(--ctp-crust, #181825);
+  transform: translateY(-1px);
+  box-shadow: none;
 }
 .auth-row-between {
   justify-content: space-between;
@@ -223,18 +223,19 @@ i.fa-solid.fa-eye-slash {
   color: var(--ctp-crust, #181825);
 }
 /* Modern Auth (Login/Register) Form Styles - Inspired by SportifyTrial */
+/* Auth Section and Container - Palette Colors Only */
 .auth-section {
   min-height: 100vh;
   display: flex;
-  background: linear-gradient(90deg, var(--ctp-lavender, #cba6f7) 0%, var(--ctp-mauve, #b4befe) 100%);
+  background: var(--ctp-mantle, #1a1b28);
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 7rem 1rem;
   margin-top: 5vh;
   margin-bottom: 0;
 }
 .auth-container {
-  background: var(--white-clr, #fff);
+  background: var(--ctp-surface0, #2c2d45fc);
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -244,7 +245,7 @@ i.fa-solid.fa-eye-slash {
 }
 .auth-tabs {
   display: flex;
-  background: #f8f9fa;
+  background: var(--ctp-surface1, #23243a);
 }
 .auth-tab {
   flex: 1;
@@ -254,13 +255,13 @@ i.fa-solid.fa-eye-slash {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  color: #666;
+  color: var(--ctp-subtext1, #a6adc8);
   transition: all 0.3s ease;
   position: relative;
 }
 .auth-tab.active {
-  background: var(--white-clr, #fff);
-  color: var(---primary-clr, #e6303d);
+  background: var(--ctp-base, #23243a);
+  color: var(--ctp-mauve, #b4befe);
 }
 .auth-tab.active::after {
   content: '';
@@ -269,15 +270,17 @@ i.fa-solid.fa-eye-slash {
   left: 0;
   right: 0;
   height: 3px;
-  background: var(---primary-clr, #e6303d);
+  background: var(--ctp-mauve, #b4befe);
 }
 .auth-tab:hover:not(.active) {
-  background: #e9ecef;
-  color: var(--ctp-subtext1, #333);
+  background: var(--ctp-surface2, #2d2e3e);
+  color: var(--ctp-mauve, #b4befe);
 }
 .auth-form-container {
     padding: 0.5rem 2rem 2.5rem 2rem;
     display: none;
+    background: var(--ctp-surface0, #2c2d45fc);
+    border-radius: 16px;
 }
 .auth-form-container.active {
     display: block;
@@ -291,12 +294,12 @@ i.fa-solid.fa-eye-slash {
 }
 .auth-header h2 {
   font-size: 1.8rem;
-  color: var(--light-black, #333);
+  color: var(--ctp-mauve, #b4befe);
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
 .auth-header p {
-  color: #666;
+  color: var(--ctp-subtext1, #a6adc8);
   font-size: 1rem;
 }
 .auth-form {
@@ -326,41 +329,43 @@ i.fa-solid.fa-eye-slash {
 .input-wrapper i {
   position: absolute;
   left: 1rem;
-  color: #666;
+  color: var(--ctp-mauve, #b4befe);
   z-index: 1;
 }
 .input-wrapper input {
   width: 100%;
   padding: 1rem 1rem 1rem 3rem;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--ctp-surface2, #2d2e3e);
   border-radius: 10px;
   font-size: 1rem;
+  background: var(--ctp-base, #23243a);
+  color: var(--ctp-text, #f4f4f5);
   transition: all 0.3s ease;
   outline: none;
 }
 .input-wrapper input:focus {
-  border-color: var(---primary-clr, #e6303d);
-  box-shadow: 0 0 0 3px rgba(230, 48, 61, 0.1);
+  border-color: var(--ctp-mauve, #b4befe);
+  box-shadow: 0 0 0 3px var(--ctp-mauve, #b4befe22);
 }
 .password-toggle {
   position: absolute;
   right: 1rem;
   background: none;
   border: none;
-  color: #666;
+  color: var(--ctp-mauve, #b4befe);
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1;
 }
 .password-toggle:hover {
-  color: var(---primary-clr, #e6303d);
+  color: var(--ctp-lavender, #a5b4fc);
 }
 .password-strength {
   margin-top: 0.5rem;
 }
 .strength-bar {
   height: 4px;
-  background: #e1e5e9;
+  background: var(--ctp-surface2, #2d2e3e);
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: 0.3rem;
@@ -373,19 +378,19 @@ i.fa-solid.fa-eye-slash {
 }
 .strength-fill.weak {
   width: 33%;
-  background: #dc3545;
+  background: var(--ctp-red, #ff4b5c);
 }
 .strength-fill.medium {
   width: 66%;
-  background: #ffc107;
+  background: var(--ctp-yellow, #ffe066);
 }
 .strength-fill.strong {
   width: 100%;
-  background: #28a745;
+  background: var(--ctp-green, #63e6be);
 }
 .strength-text {
   font-size: 0.8rem;
-  color: #666;
+  color: var(--ctp-subtext1, #a6adc8);
 }
 .form-options {
   display: flex;
@@ -398,7 +403,7 @@ i.fa-solid.fa-eye-slash {
   align-items: center;
   cursor: pointer;
   font-size: 0.9rem;
-  color: var(--light-black, #333);
+  color: var(--ctp-subtext1, #a6adc8);
 }
 .checkbox-container input {
   display: none;
@@ -406,15 +411,15 @@ i.fa-solid.fa-eye-slash {
 .checkmark {
   width: 18px;
   height: 18px;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--ctp-surface2, #2d2e3e);
   border-radius: 4px;
   margin-right: 0.5rem;
   position: relative;
   transition: all 0.3s ease;
 }
 .checkbox-container input:checked + .checkmark {
-  background: var(---primary-clr, #e6303d);
-  border-color: var(---primary-clr, #e6303d);
+  background: var(--ctp-mauve, #b4befe);
+  border-color: var(--ctp-mauve, #b4befe);
 }
 .checkbox-container input:checked + .checkmark::after {
   content: '✓';
@@ -422,23 +427,25 @@ i.fa-solid.fa-eye-slash {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: var(--ctp-base, #23243a);
   font-size: 12px;
   font-weight: bold;
 }
 .forgot-password {
-  color: var(---primary-clr, #e6303d);
+  color: var(--ctp-red, #ff4b5c);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
+  transition: color 0.18s;
 }
 .forgot-password:hover {
+  color: var(--ctp-mauve, #b4befe);
   text-decoration: underline;
 }
 .auth-btn {
   width: 100%;
-  background: var(--ctp-red, #f38ba8);
-  color: white;
+  background: var(--ctp-mauve, #b4befe);
+  color: var(--ctp-crust, #181825);
   border: none;
   padding: 1.2rem;
   border-radius: 10px;
@@ -452,9 +459,10 @@ i.fa-solid.fa-eye-slash {
   gap: 0.5rem;
 }
 .auth-btn:hover {
-  background: var(--ctp-mauve, #b4befe);
+  background: var(--ctp-lavender, #a5b4fc);
+  color: var(--ctp-crust, #181825);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(230, 48, 61, 0.3);
+  box-shadow: 0 8px 10px var(--ctp-mauve, #b4befe33);
 }
 .auth-btn:active {
   transform: translateY(0);
@@ -471,12 +479,12 @@ i.fa-solid.fa-eye-slash {
   left: 0;
   right: 0;
   height: 1px;
-  background: #e1e5e9;
+  background: var(--ctp-surface2, #2d2e3e);
 }
 .auth-divider span {
-  background: var(--white-clr, #fff);
+  background: var(--ctp-surface0, #2c2d45fc);
   padding: 0 1rem;
-  color: #666;
+  color: var(--ctp-subtext1, #a6adc8);
   font-size: 0.9rem;
 }
 .social-login {
@@ -486,9 +494,9 @@ i.fa-solid.fa-eye-slash {
 }
 .social-btn {
   padding: 1rem;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--ctp-surface2, #2d2e3e);
   border-radius: 10px;
-  background: white;
+  background: var(--ctp-base, #23243a);
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -514,8 +522,8 @@ i.fa-solid.fa-eye-slash {
   border-color: #4267B2;
 }
 .auth-error {
-  background: #f8d7da;
-  color: #721c24;
+  background: var(--ctp-red, #ff4b5c);
+  color: #fff;
   padding: 10px 16px;
   border-radius: 7px;
   margin-bottom: 8px;
@@ -523,11 +531,11 @@ i.fa-solid.fa-eye-slash {
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
-  border: 1px solid #f5c6cb;
+  border: 1px solid var(--ctp-red, #ff4b5c);
 }
 .auth-success {
-  background: #d4edda;
-  color: #155724;
+  background: var(--ctp-green, #63e6be);
+  color: var(--ctp-base, #23243a);
   padding: 10px 16px;
   border-radius: 7px;
   margin-bottom: 8px;
@@ -535,7 +543,7 @@ i.fa-solid.fa-eye-slash {
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
-  border: 1px solid #c3e6cb;
+  border: 1px solid var(--ctp-green, #63e6be);
 }
 @media (max-width: 768px) {
   .auth-container {
