@@ -1,3 +1,7 @@
+.shop-products::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
 .shop-section {
   width: 100vw;
   min-height: 100vh;
