@@ -36,7 +36,6 @@ if ($user_id) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <?php include __DIR__ . '/../includes/main-header.php'; ?>
     <div class="cart-container">
         <h1 class="cart-title"><i class="fa fa-shopping-cart"></i> Shopping Cart</h1>
         <p class="cart-subtitle">Review your items before checkout</p>

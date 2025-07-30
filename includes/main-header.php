@@ -18,7 +18,7 @@
           <button class="dropdown-item category-link" data-category="Accessories" type="button">Accessories</button>
         </div>
       </li>
-      <li><a href="#contact">CONTACT</a></li>
+      <li><a href="../src/index.php#contact">CONTACT</a></li>
     </ul>
   </nav>
   <div class="main-header-actions">
