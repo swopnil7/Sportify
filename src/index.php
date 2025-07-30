@@ -15,8 +15,8 @@
     <!-- Hero Carousel -->
     <section class="hero-carousel">
       <div class="carousel-track">
+        <div class="carousel-slide" style="background-image:url('../assets/images/hero4.webp')"></div>
         <div class="carousel-slide" style="background-image:url('../assets/images/hero1.webp')"></div>
-        <div class="carousel-slide" style="background-image:url('../assets/images/hero2.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('../assets/images/hero3.webp')"></div>
       </div>
       <div class="carousel-overlay">
