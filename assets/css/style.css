@@ -1,3 +1,137 @@
+/* Wishlist Page Styles */
+.wishlist-container {
+  max-width: 700px;
+  margin: 7rem auto 2rem auto;
+  background: var(--ctp-base);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px 0 var(--ctp-mauve, #b4befe11);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+.wishlist-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ctp-mauve);
+  margin-bottom: 1.5em;
+  text-align: left;
+}
+.wishlist-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+.wishlist-card {
+  display: flex;
+  align-items: center;
+  background: var(--ctp-surface0);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px 0 var(--ctp-mauve, #b4befe08);
+  padding: 1.1em 1.2em;
+  gap: 1.2em;
+}
+.wishlist-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--ctp-mantle);
+}
+.wishlist-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wishlist-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--ctp-text);
+}
+.wishlist-remove-btn {
+  background: var(--ctp-red, #f38ba8);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.2em;
+  height: 2.2em;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+}
+.wishlist-remove-btn:hover {
+  background: var(--ctp-mauve, #b4befe);
+}
+.wishlist-empty {
+  color: var(--ctp-subtext1);
+  text-align: center;
+  font-size: 1.1em;
+  margin-top: 2em;
+}
+/* Wishlist Button Styles */
+.wishlist-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: var(--ctp-subtext1, #a6adc8);
+  transition: color 0.18s;
+  outline: none;
+}
+.wishlist-btn.active,
+.wishlist-btn:active,
+.wishlist-btn:focus {
+  color: var(--ctp-red, #f38ba8);
+}
+.wishlist-btn .fa-heart {
+  transition: color 0.18s;
+}
+.wishlist-btn.active .fa-heart {
+  font-weight: 900;
+  color: var(--ctp-red, #f38ba8);
+}
+/* Cart Quantity Controls */
+.cart-qty-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3em;
+}
+.cart-qty-input {
+  width: 2.5em;
+  text-align: center;
+  font-size: 1.1em;
+  border: 1px solid var(--ctp-mauve, #b4befe33);
+  border-radius: 6px;
+  background: var(--ctp-base);
+  color: var(--ctp-text);
+  margin-right: 0.2em;
+}
+.cart-qty-arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+.cart-qty-up, .cart-qty-down {
+  background: var(--ctp-mauve, #b4befe);
+  color: var(--ctp-crust, #181825);
+  border: none;
+  border-radius: 4px;
+  width: 1.7em;
+  height: 1.3em;
+  font-size: 1.1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, color 0.18s;
+  padding: 0;
+}
+.cart-qty-up:hover, .cart-qty-down:hover {
+  background: var(--ctp-lavender, #b4befe);
+  color: var(--ctp-mauve, #8839ef);
+}
 /* --- Sportify Cart Page Styles --- */
 /* --- End Cart Page Styles --- */
 .cart-container {
