@@ -53,7 +53,7 @@ $result = $conn->query($sql);
   <h2 class="section-title">Featured Products</h2>
   <div class="products-grid">
     <?php while($row = $result->fetch_assoc()): ?>
-      <div class="product-card">
+      <div class="product-card" data-product-id="<?php echo $row['id']; ?>">
         <div style="position: relative;">
           <img src="../<?php echo htmlspecialchars($row['image_url']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>" class="product-img">
           <span class="product-badge"><?php echo htmlspecialchars($row['badge']); ?></span>
@@ -103,7 +103,9 @@ $result2 = $conn2->query($sql2);
   <h2 class="section-title">Top Rated Products</h2>
   <div class="products-grid">
     <?php while($row = $result2->fetch_assoc()): ?>
-      <div class="product-card">
+      <div class="product-card" data-product-id="<?php echo $row['id']; ?>">
+</body>
+<script src="../assets/js/cart.js"></script>
         <div style="position: relative;">
           <img src="../<?php echo htmlspecialchars($row['image_url']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>" class="product-img">
           <span class="product-badge"><?php echo htmlspecialchars($row['badge']); ?></span>

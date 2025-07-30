@@ -1,3 +1,160 @@
+/* --- Sportify Cart Page Styles --- */
+/* --- End Cart Page Styles --- */
+.cart-container {
+  max-width: 1200px;
+  margin: 8.5rem auto 2rem auto;
+  background: var(--ctp-base);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 var(--ctp-mauve, #b4befe11);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+.cart-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--ctp-mauve);
+  margin-bottom: 0.2em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.cart-title i {
+  color: var(--ctp-red);
+  font-size: 1.2em;
+}
+.cart-subtitle {
+  color: var(--ctp-subtext1);
+  font-size: 1.1rem;
+  margin-bottom: 2.2em;
+}
+.cart-content {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.cart-items-section {
+  flex: 2;
+  min-width: 350px;
+  background: var(--ctp-surface0);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 var(--ctp-mauve, #b4befe08);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.cart-items-section h2 {
+  font-size: 1.3rem;
+  color: var(--ctp-mauve);
+  font-weight: 700;
+  margin-bottom: 1.2em;
+}
+.cart-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.7em;
+}
+.cart-table th, .cart-table td {
+  text-align: left;
+  padding: 0.7em 0.5em;
+  color: var(--ctp-text);
+}
+.cart-table th {
+  font-size: 1.05em;
+  color: var(--ctp-mauve);
+  font-weight: 700;
+  border-bottom: 2px solid var(--ctp-surface2);
+}
+.cart-table td {
+  background: var(--ctp-base);
+  border-radius: 8px;
+  vertical-align: middle;
+  font-size: 1em;
+}
+.cart-product-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--ctp-surface1);
+  border: 1.5px solid var(--ctp-surface2);
+}
+.cart-remove-btn {
+  background: var(--ctp-red);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2em;
+  padding: 0.3em 0.7em;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.cart-remove-btn:hover {
+  background: var(--ctp-mauve);
+}
+.cart-empty {
+  color: var(--ctp-overlay1);
+  font-size: 1.1em;
+  text-align: center;
+  margin: 2em 0;
+}
+.cart-summary-section {
+  flex: 1;
+  min-width: 300px;
+  background: var(--ctp-surface0);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 var(--ctp-mauve, #b4befe08);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  height: fit-content;
+}
+.cart-summary-section h2 {
+  font-size: 1.2rem;
+  color: var(--ctp-mauve);
+  font-weight: 700;
+  margin-bottom: 1.2em;
+}
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05em;
+  color: var(--ctp-text);
+  margin-bottom: 0.5em;
+}
+.cart-summary-total {
+  font-size: 1.15em;
+  font-weight: 700;
+  color: var(--ctp-mauve);
+  margin-top: 1.2em;
+}
+.cart-checkout-btn {
+  margin-top: 1.5em;
+  width: 100%;
+  font-size: 1.1em;
+  font-weight: 700;
+  background: var(--ctp-mauve);
+  color: var(--ctp-crust);
+  border: none;
+  border-radius: 10px;
+  padding: 1.1em 0;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.cart-checkout-btn:hover {
+  background: var(--ctp-lavender);
+  color: var(--ctp-crust);
+}
+.cart-continue-link {
+  display: block;
+  margin-top: 1.2em;
+  color: var(--ctp-mauve);
+  text-align: left;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+.cart-continue-link:hover {
+  color: var(--ctp-lavender);
+}
 i.fa-solid.fa-eye,
 i.fa-solid.fa-eye-slash {
   position: relative;

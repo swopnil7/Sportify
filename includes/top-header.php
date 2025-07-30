@@ -11,7 +11,7 @@ include '../config/db.php';
     <ul class="top-bar-list">
       <li><a href="../src/account.php"><i class="fa fa-user"></i> My Account</a></li>
       <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-      <li><a href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+      <li><a href="../src/cart.php"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
       <?php if (isset($_SESSION['user_id'])): ?>
         <li>
           <form method="post" action="../src/account.php" style="display:inline;">
