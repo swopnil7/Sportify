@@ -4,7 +4,7 @@ require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../includes/main-header.php';
 require_once __DIR__ . '/../includes/top-header.php';
 
-$user_id = $_SESSION['id'] ?? null;
+$user_id = $_SESSION['user_id'] ?? null;
 $cart_items = [];
 $total = 0;
 
@@ -36,7 +36,12 @@ if ($user_id) {
         <p class="cart-subtitle">Review your items before checkout</p>
         <div class="cart-content">
             <div class="cart-items-section">
-                <h2>Cart Items</h2>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <h2>Cart Items</h2>
+                  <?php if (count($cart_items) > 0): ?>
+                  <button type="button" class="clear-cart-btn">&#128465; Clear Cart</button>
+                  <?php endif; ?>
+                </div>
                 <?php if (count($cart_items) > 0): ?>
                 <form method="post" action="">
                     <table class="cart-table">
@@ -54,15 +59,21 @@ if ($user_id) {
                         </thead>
                         <tbody>
                         <?php foreach ($cart_items as $item): ?>
-                            <tr>
+                            <tr data-cart-id="<?php echo $item['id']; ?>">
                                 <td><img src="../assets/images/products/<?php echo htmlspecialchars($item['product_image']); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>" class="cart-product-img"></td>
                                 <td><?php echo htmlspecialchars($item['product_name']); ?></td>
                                 <td><?php echo htmlspecialchars($item['size']); ?></td>
                                 <td><?php echo htmlspecialchars($item['color']); ?></td>
                                 <td>$<?php echo number_format($item['product_price'], 2); ?></td>
-                                <td><?php echo (int)$item['quantity']; ?></td>
+                                <td>
+                                  <div class="cart-qty-controls">
+                                    <button type="button" class="cart-qty-btn cart-qty-decrease">-</button>
+                                    <input type="text" class="cart-qty-input" value="<?php echo (int)$item['quantity']; ?>" readonly>
+                                    <button type="button" class="cart-qty-btn cart-qty-increase">+</button>
+                                  </div>
+                                </td>
                                 <td>$<?php echo number_format($item['product_price'] * $item['quantity'], 2); ?></td>
-                                <td><button type="submit" name="remove" value="<?php echo $item['id']; ?>" class="cart-remove-btn">&times;</button></td>
+                                <td><button type="button" class="cart-remove-btn" data-cart-id="<?php echo $item['id']; ?>">&#128465;</button></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -72,6 +83,7 @@ if ($user_id) {
                     <div class="cart-empty">Your cart is empty.</div>
                 <?php endif; ?>
             </div>
+            <script src="../assets/js/cart-actions.js"></script>
             <div class="cart-summary-section">
                 <h2>Order Summary</h2>
                 <div class="cart-summary-row">

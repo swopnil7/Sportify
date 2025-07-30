@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.textContent = 'Add to Cart';
             btn.classList.remove('added');
           }, 1200);
-          // Optionally update cart icon/count here
         } else if (data.error === 'not_logged_in') {
+          alert('Please log in to add to cart.');
           window.location.href = 'register.php';
         } else {
-          alert('Could not add to cart.');
+          alert('Add to cart error: ' + (data.error || 'Unknown error'));
           if (window.console) console.error('Add to cart error:', data);
         }
       })

@@ -11,6 +11,7 @@
 <body>
     <?php include '../includes/top-header.php'; ?>
     <?php include '../includes/main-header.php'; ?>
+    <!-- Removed add_to_cart.php inclusion -->
 
     <!-- Hero Carousel -->
     <section class="hero-carousel">
@@ -37,6 +38,7 @@
     <script src="../assets/js/main-header.js"></script>
     <script src="../assets/js/hero-carousel.js"></script>
 </body>
+
 
 <?php
 // Featured Products Section
@@ -68,7 +70,7 @@ $result = $conn->query($sql);
           <span class="product-rating">⭐ <?php echo number_format($row['rating'], 2); ?></span>
         </div>
         <div class="product-actions">
-          <button class="wishlist-btn" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa fa-heart"></i></button>
+          <button class="wishlist-btn" title="Add to Wishlist" aria-label="Add to Wishlist" type="button"><i class="fa fa-heart"></i></button>
           <button class="add-cart-btn">Add to Cart</button>
         </div>
       </div>
@@ -104,8 +106,9 @@ $result2 = $conn2->query($sql2);
   <div class="products-grid">
     <?php while($row = $result2->fetch_assoc()): ?>
       <div class="product-card" data-product-id="<?php echo $row['id']; ?>">
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/wishlist.js"></script>
 </body>
-<script src="../assets/js/cart.js"></script>
         <div style="position: relative;">
           <img src="../<?php echo htmlspecialchars($row['image_url']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>" class="product-img">
           <span class="product-badge"><?php echo htmlspecialchars($row['badge']); ?></span>
