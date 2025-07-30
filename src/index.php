@@ -63,15 +63,22 @@ $result = $conn->query($sql);
         <div class="product-info">
           <h3 class="product-name"><?php echo htmlspecialchars($row['name']); ?></h3>
           <p class="product-club"><?php echo htmlspecialchars($row['club']); ?></p>
+          <?php
+            $usd_to_npr = 133;
+            $price_npr = isset($row['price']) ? $row['price'] * $usd_to_npr : 0;
+            $original_price_npr = (isset($row['original_price']) && $row['original_price'] > $row['price']) ? $row['original_price'] * $usd_to_npr : null;
+          ?>
           <div class="product-pricing">
-            <span class="product-price">$<?php echo number_format($row['price'], 2); ?></span>
-            <span class="product-original-price">$<?php echo number_format($row['original_price'], 2); ?></span>
+            <span class="product-price">रु<?php echo number_format($price_npr); ?></span>
+            <?php if ($original_price_npr): ?>
+              <span class="product-original-price">रु<?php echo number_format($original_price_npr); ?></span>
+            <?php endif; ?>
           </div>
           <span class="product-rating">⭐ <?php echo number_format($row['rating'], 2); ?></span>
         </div>
         <div class="product-actions">
           <button class="wishlist-btn" title="Add to Wishlist" aria-label="Add to Wishlist" type="button"><i class="fa fa-heart"></i></button>
-          <button class="add-cart-btn">Add to Cart</button>
+          <button class="add-cart-btn" data-product-id="<?php echo $row['id']; ?>">Add to Cart</button>
         </div>
       </div>
     <?php endwhile; ?>
@@ -116,9 +123,16 @@ $result2 = $conn2->query($sql2);
         <div class="product-info">
           <h3 class="product-name"><?php echo htmlspecialchars($row['name']); ?></h3>
           <p class="product-club"><?php echo htmlspecialchars($row['club']); ?></p>
+          <?php
+            $usd_to_npr = 133;
+            $price_npr = isset($row['price']) ? $row['price'] * $usd_to_npr : 0;
+            $original_price_npr = (isset($row['original_price']) && $row['original_price'] > $row['price']) ? $row['original_price'] * $usd_to_npr : null;
+          ?>
           <div class="product-pricing">
-            <span class="product-price">$<?php echo number_format($row['price'], 2); ?></span>
-            <span class="product-original-price">$<?php echo number_format($row['original_price'], 2); ?></span>
+            <span class="product-price">रु<?php echo number_format($price_npr); ?></span>
+            <?php if ($original_price_npr): ?>
+              <span class="product-original-price">रु<?php echo number_format($original_price_npr); ?></span>
+            <?php endif; ?>
           </div>
           <span class="product-rating">⭐ <?php echo number_format($row['rating'], 2); ?></span>
         </div>
@@ -145,6 +159,30 @@ $result2 = $conn2->query($sql2);
     <img src="../assets/images/clubs/chelsea.png" alt="Chelsea" class="club-logo" />
     <img src="../assets/images/clubs/acmilan.png" alt="AC Milan" class="club-logo" />
     <!-- Repeat as needed to fill the row -->
+  </div>
+</section>
+
+
+<!-- Contact Us Section -->
+<section class="contact-section" id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <p class="contact-desc">Get in touch with our team for any questions or support</p>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="contact-icon" style="color: var(--ctp-red);"><i class="fa fa-map-marker-alt"></i></div>
+      <h3 class="contact-label">Address</h3>
+      <p class="contact-info">123 Sports Avenue<br>Football City, FC 12345</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon" style="color: var(--ctp-red);"><i class="fa fa-phone"></i></div>
+      <h3 class="contact-label">Phone</h3>
+      <p class="contact-info">+1 (555) 123-SPORT</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon" style="color: var(--ctp-red);"><i class="fa fa-envelope"></i></div>
+      <h3 class="contact-label">Email</h3>
+      <p class="contact-info">support@sportify.com</p>
+    </div>
   </div>
 </section>
 

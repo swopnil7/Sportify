@@ -9,7 +9,7 @@ $cart_items = [];
 $total = 0;
 
 if ($user_id) {
-    $stmt = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
+    $stmt = $conn->prepare("SELECT c.*, p.image_url FROM cart c JOIN products p ON c.product_id = p.id WHERE c.user_id = ?");
     $stmt->bind_param('i', $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -28,6 +28,7 @@ if ($user_id) {
     <title>Shopping Cart - Sportify</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <?php include __DIR__ . '/../includes/main-header.php'; ?>
@@ -60,15 +61,7 @@ if ($user_id) {
                         <tbody>
                         <?php foreach ($cart_items as $item): ?>
                             <tr data-cart-id="<?php echo $item['id']; ?>">
-                                <?php
-                                $image = $item['product_image'];
-                                if (strpos($image, 'assets/') === 0 || strpos($image, 'uploads/') === 0) {
-                                    $imgSrc = '../' . $image;
-                                } else {
-                                    $imgSrc = '../assets/images/products/' . $image;
-                                }
-                                ?>
-                                <td><img src="<?php echo htmlspecialchars($imgSrc); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>" class="cart-product-img"></td>
+                                <td><img src="../<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>" class="cart-product-img"></td>
                                 <td><?php echo htmlspecialchars($item['product_name']); ?></td>
                                 <td><?php echo htmlspecialchars($item['size']); ?></td>
                                 <td><?php echo htmlspecialchars($item['color']); ?></td>

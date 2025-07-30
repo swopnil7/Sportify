@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2025 at 10:05 AM
+-- Generation Time: Jul 30, 2025 at 08:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `product_id` int(11) DEFAULT NULL,
   `product_name` varchar(200) NOT NULL,
   `product_price` decimal(10,2) NOT NULL,
-  `product_image` text DEFAULT NULL,
   `quantity` int(11) DEFAULT 1,
   `size` varchar(10) DEFAULT 'M',
   `color` varchar(50) DEFAULT 'Default',
@@ -98,7 +98,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `club`, `description`, `price`, `original_price`, `image_url`, `badge`, `rating`, `reviews_count`, `category`, `sub_category`, `stock`, `created_at`, `updated_at`) VALUES
-(1, 'Manchester United Home Jersey 2025', 'Manchester United', 'Official home kit with latest design', 89.99, 109.99, 'assets/images/products/manutdhome.avif', 'New', 4.68, 124, 'Clothing', 'Jersey', 50, '2025-07-29 09:34:20', '2025-07-29 16:38:22'),
+(1, 'Manchester United Home Jersey 2025/2026', 'Manchester United', 'Official home kit with latest design', 89.99, 109.99, 'assets/images/products/manutdhome.jpg', 'New', 4.81, 124, 'Clothing', 'Jersey', 50, '2025-07-29 09:34:20', '2025-07-30 19:42:54'),
 (2, 'Real Madrid Home Jersey 2025/2026', 'Real Madrid', 'The Royal White have their new kit for the season', 99.99, 150.99, 'assets/images/products/madridhome.jpg', 'Popular', 4.80, 198, 'Clothing', 'Jersey', 50, '2025-07-29 09:37:57', '2025-07-29 16:04:52'),
 (3, 'Chelsea Away Jersey 2025/2026', 'Chelsea', 'Up The Blues!', 99.99, 130.00, 'assets/images/products/chelseaaway.webp', 'Popular', 4.92, 110, 'Clothing', 'Jersey', 32, '2025-07-29 13:27:57', '2025-07-29 16:37:56'),
 (4, 'AS Roma Alternate Jersey 2025/2026', 'AS Roma', 'Class & Elegance added to every thread.', 89.99, 120.00, 'assets/images/products/romathird.jpg', 'Popular', 4.90, 177, 'Clothing', 'Jersey', 17, '2025-07-29 16:16:38', '2025-07-29 16:16:38');
@@ -124,7 +124,21 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `password`, `created_at`) VALUES
-(1, 'Swopnil', 'Adhikari', 'report2swopnil@gmail.com', NULL, '$2y$10$sPugvj.mvY85zp31.5OC6.v2NPOcutkzeMDgcVd.NbN57EY2hwmGa', '2025-07-30 06:26:24');
+(1, 'Swopnil', 'Adhikari', 'report2swopnil@gmail.com', NULL, '$2y$10$sPugvj.mvY85zp31.5OC6.v2NPOcutkzeMDgcVd.NbN57EY2hwmGa', '2025-07-30 06:26:24'),
+(2, 'Okay', 'Lol', 'Iambored@gmail.com', NULL, '$2y$10$/ldJY4SDVPyDRNIDvCcJPeRcMXZSItwBx.eIOgAhm.uaLJv0IuLy2', '2025-07-30 14:33:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -165,6 +179,13 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_wishlist` (`user_id`,`product_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -172,7 +193,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -196,7 +217,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
