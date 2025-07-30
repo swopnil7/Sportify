@@ -60,7 +60,15 @@ if ($user_id) {
                         <tbody>
                         <?php foreach ($cart_items as $item): ?>
                             <tr data-cart-id="<?php echo $item['id']; ?>">
-                                <td><img src="../assets/images/products/<?php echo htmlspecialchars($item['product_image']); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>" class="cart-product-img"></td>
+                                <?php
+                                $image = $item['product_image'];
+                                if (strpos($image, 'assets/') === 0 || strpos($image, 'uploads/') === 0) {
+                                    $imgSrc = '../' . $image;
+                                } else {
+                                    $imgSrc = '../assets/images/products/' . $image;
+                                }
+                                ?>
+                                <td><img src="<?php echo htmlspecialchars($imgSrc); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>" class="cart-product-img"></td>
                                 <td><?php echo htmlspecialchars($item['product_name']); ?></td>
                                 <td><?php echo htmlspecialchars($item['size']); ?></td>
                                 <td><?php echo htmlspecialchars($item['color']); ?></td>

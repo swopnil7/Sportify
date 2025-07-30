@@ -30,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['success' => false, 'error' => 'product_not_found']);
         exit;
     }
+    // Use provided image_url if present, else fallback to DB
+    $final_image_url = $product['image_url'];
 
     // Check if already in cart
     $stmt = $conn->prepare('SELECT id, quantity FROM cart WHERE user_id = ? AND product_id = ? AND size = ? AND color = ?');
@@ -53,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $product_id,
             $product['name'],
             $product['price'],
-            $product['image_url'],
+            $final_image_url,
             $quantity,
             $size,
             $color

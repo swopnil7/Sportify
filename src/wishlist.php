@@ -36,7 +36,12 @@ if ($user_id) {
                 <img src="../<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="wishlist-img">
                 <div class="wishlist-info">
                     <div class="wishlist-name"><?php echo htmlspecialchars($item['name']); ?></div>
-                    <button class="wishlist-remove-btn" data-wishlist-id="<?php echo $item['wishlist_id']; ?>">&#128465;</button>
+                    <div style="display:flex;gap:0.5em;align-items:center;">
+                      <button class="wishlist-cart-btn" data-product-id="<?php echo $item['id']; ?>" title="Add to Cart">
+                        <i class="fa fa-shopping-cart"></i>
+                      </button>
+                      <button class="wishlist-remove-btn" data-wishlist-id="<?php echo $item['wishlist_id']; ?>">&#128465;</button>
+                    </div>
                 </div>
             </div>
             <?php endforeach; ?>
