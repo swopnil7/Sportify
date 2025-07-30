@@ -2,7 +2,7 @@
   <div class="footer-content">
     <div class="footer-brand">
       <h3>Sportify</h3>
-      <p>Your one-stop shop for authentic sports merchandise and fan gear.</p>
+      <p>Gear up. Show your passion. Shop the best in sportswear at Sportify!</p>
     </div>
     <div class="footer-links">
       <h4>Quick Links</h4>
