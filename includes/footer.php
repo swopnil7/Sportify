@@ -7,8 +7,8 @@
     <div class="footer-links">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="/src/index.php">Home</a></li>
-        <li><a href="/src/shop.php">Shop</a></li>
+        <li><a href="../src/index.php">Home</a></li>
+        <li><a href="../src/shop.php">Shop</a></li>
         <li><a href="../src/index.php#contact">Contact</a></li>
       </ul>
     </div>
