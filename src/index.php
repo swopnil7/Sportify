@@ -171,12 +171,12 @@ $result2 = $conn2->query($sql2);
     <div class="contact-card">
       <div class="contact-icon" style="color: var(--ctp-red);"><i class="fa fa-map-marker-alt"></i></div>
       <h3 class="contact-label">Address</h3>
-      <p class="contact-info">123 Sports Avenue<br>Football City, FC 12345</p>
+      <p class="contact-info">Sportify Avenue<br>Kathmandu Nepal</p>
     </div>
     <div class="contact-card">
       <div class="contact-icon" style="color: var(--ctp-red);"><i class="fa fa-phone"></i></div>
       <h3 class="contact-label">Phone</h3>
-      <p class="contact-info">+1 (555) 123-SPORT</p>
+      <p class="contact-info">+01 4016712</p>
     </div>
     <div class="contact-card">
       <div class="contact-icon" style="color: var(--ctp-red);"><i class="fa fa-envelope"></i></div>

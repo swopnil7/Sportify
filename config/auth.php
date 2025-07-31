@@ -1,5 +1,4 @@
 <?php
-// auth.php: Handles authentication, session, and DB logic for login/register
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

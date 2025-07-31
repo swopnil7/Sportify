@@ -40,7 +40,7 @@
 </div>
 <script src="../assets/js/main-header.js"></script>
 <script>
-// Polished Categories Dropdown Toggle
+
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.getElementById('categoriesToggle');
   const menu = document.getElementById('categoriesMenu');
@@ -70,11 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const val = searchInput.value.trim();
       if (val.length > 0) {
-        // Always redirect to shop.php with search param
         window.location.href = '../src/shop.php?search=' + encodeURIComponent(val);
       }
     });
-    // Also allow Enter key to submit
     searchInput.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -83,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Category dropdown logic: redirect to shop.php with category param
   document.querySelectorAll('.category-link').forEach(function(btn) {
     btn.addEventListener('click', function() {
       const cat = btn.getAttribute('data-category');
