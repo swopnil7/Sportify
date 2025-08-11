@@ -4,7 +4,6 @@
       const productId = btn.getAttribute('data-product-id');
       if (!productId) return;
       btn.disabled = true;
-      // Try to get image_url from wishlist card if present
       let productImage = '';
       const card = btn.closest('.wishlist-card');
       if (card) {

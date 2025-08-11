@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2025 at 08:18 PM
+-- Generation Time: Aug 11, 2025 at 02:35 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,6 +38,14 @@ CREATE TABLE `cart` (
   `color` varchar(50) DEFAULT 'Default',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `product_id`, `product_name`, `product_price`, `quantity`, `size`, `color`, `created_at`) VALUES
+(32, 2, 2, 'Real Madrid Home Jersey 2025/2026', 99.99, 1, 'M', 'Default', '2025-07-31 03:56:51'),
+(33, 2, 5, 'Nike Air Zoom Mercurial Superfly', 255.00, 1, 'M', 'Default', '2025-07-31 03:56:55');
 
 -- --------------------------------------------------------
 
@@ -98,10 +106,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `club`, `description`, `price`, `original_price`, `image_url`, `badge`, `rating`, `reviews_count`, `category`, `sub_category`, `stock`, `created_at`, `updated_at`) VALUES
-(1, 'Manchester United Home Jersey 2025/2026', 'Manchester United', 'Official home kit with latest design', 89.99, 109.99, 'assets/images/products/manutdhome.jpg', 'New', 4.81, 124, 'Clothing', 'Jersey', 50, '2025-07-29 09:34:20', '2025-07-30 19:42:54'),
+(1, 'Manchester United Home Jersey 2025/2026', 'Manchester United', 'Official home kit with latest design', 89.99, 109.99, 'assets/images/products/manutdhome.jpg', 'Popular', 4.81, 124, 'Clothing', 'Jersey', 50, '2025-07-29 09:34:20', '2025-07-31 00:49:07'),
 (2, 'Real Madrid Home Jersey 2025/2026', 'Real Madrid', 'The Royal White have their new kit for the season', 99.99, 150.99, 'assets/images/products/madridhome.jpg', 'Popular', 4.80, 198, 'Clothing', 'Jersey', 50, '2025-07-29 09:37:57', '2025-07-29 16:04:52'),
 (3, 'Chelsea Away Jersey 2025/2026', 'Chelsea', 'Up The Blues!', 99.99, 130.00, 'assets/images/products/chelseaaway.webp', 'Popular', 4.92, 110, 'Clothing', 'Jersey', 32, '2025-07-29 13:27:57', '2025-07-29 16:37:56'),
-(4, 'AS Roma Alternate Jersey 2025/2026', 'AS Roma', 'Class & Elegance added to every thread.', 89.99, 120.00, 'assets/images/products/romathird.jpg', 'Popular', 4.90, 177, 'Clothing', 'Jersey', 17, '2025-07-29 16:16:38', '2025-07-29 16:16:38');
+(4, 'AS Roma Alternate Jersey 2025/2026', 'AS Roma', 'Class & Elegance added to every thread.', 89.99, 120.00, 'assets/images/products/romathird.jpg', 'New', 4.90, 177, 'Clothing', 'Jersey', 17, '2025-07-29 16:16:38', '2025-07-31 00:49:16'),
+(5, 'Nike Air Zoom Mercurial Superfly', NULL, NULL, 255.00, 279.00, 'assets/images/products/nikemercurial.webp', 'New', 4.87, 73, 'Footwear', 'Boot', 37, '2025-07-31 00:47:37', '2025-07-31 00:51:33'),
+(6, 'Puma Future 7 Pro', NULL, NULL, 73.00, 91.00, 'assets/images/products/pumafuture7.webp', 'New', 4.60, 23, 'Footwear', 'Boot', 23, '2025-07-31 00:51:19', '2025-07-31 00:52:35'),
+(7, 'Adidas Predator Elite', NULL, NULL, 205.00, 237.00, 'assets/images/products/adidaspredator.webp', 'Popular', 4.77, 145, 'Footwear', 'Boot', 77, '2025-07-31 00:56:09', '2025-07-31 00:56:34'),
+(8, 'Chelsea Peak Beanie', 'Chelsea', NULL, 30.00, 45.00, 'assets/images/products/chelseabeanie.avif', 'New', 4.50, 33, 'Accessories', 'Beanie', 16, '2025-07-31 01:14:13', '2025-07-31 01:14:29'),
+(9, 'Nike Flight Ball', NULL, NULL, 120.00, 137.00, 'assets/images/products/nikeflight.avif', 'New', 4.59, 0, 'Accessories', 'Ball', 59, '2025-07-31 01:15:30', '2025-07-31 01:15:30');
 
 -- --------------------------------------------------------
 
@@ -139,6 +152,14 @@ CREATE TABLE `wishlist` (
   `product_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `created_at`) VALUES
+(29, 2, 2, '2025-07-31 04:17:01'),
+(36, 1, 2, '2025-07-31 05:09:45');
 
 --
 -- Indexes for dumped tables
@@ -193,7 +214,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -211,7 +232,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -223,7 +244,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables
